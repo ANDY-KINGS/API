@@ -26,7 +26,9 @@ const app = express();
 app.use(express.json({limit:'10mb'}))
 
 //setup cors
-app.use(cors());
+//allow access from frontend
+app.use(cors({origin:'http://localhost:3000',credentials:true}));
+
 
 //make uploads folder accesible publicly(access from frontend)
 app.use('/uploads', express.static('uploads'));
